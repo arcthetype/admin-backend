@@ -3,7 +3,8 @@ package com.zavier.project.service.dto;
 import lombok.Data;
 
 @Data
-public class AreaDTO {
+public class UserDTO {
     private String id;
-    private String name;
+
+    private String userName;
 }

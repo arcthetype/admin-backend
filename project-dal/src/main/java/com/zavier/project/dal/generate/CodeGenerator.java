@@ -62,7 +62,7 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.zavier.project.dao");
+        pc.setParent("com.zavier.project.dal");
         pc.setService("dao");
         pc.setServiceImpl("dao.impl");
         mpg.setPackageInfo(pc);
@@ -103,7 +103,7 @@ public class CodeGenerator {
         strategy.setEntityLombokModel(true);
 
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-        strategy.setTablePrefix("db_");
+        strategy.setTablePrefix("t_");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
