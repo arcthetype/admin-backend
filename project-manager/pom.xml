@@ -20,11 +20,6 @@
             <groupId>com.zavier</groupId>
             <artifactId>project-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.zavier</groupId>
-            <artifactId>project-client</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

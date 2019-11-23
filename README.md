@@ -4,10 +4,10 @@
 
 - Spring Boot
 - MyBatis Plus
-- Dubbo
 - Druid
 - slf4j+log4j2
-- Jedis
+- Jedis  -  启动后访问：http://localhost:8080/druid  账号：root/root
+- swagger - 启动后访问：http://localhost:8080/swagger-ui.html
 
 
 
