@@ -5,9 +5,37 @@
 - Spring Boot
 - MyBatis Plus
 - Druid
-- slf4j+log4j2
-- Jedis  -  启动后访问：http://localhost:8080/druid  账号：root/root
-- swagger - 启动后访问：http://localhost:8080/swagger-ui.html
+- Slf4j + Log4j2
+- Jedis
+- Swagger
+- Spring Cache (Caffeine)
+
+## API - swagger
+
+http://localhost:8080/swagger-ui.html
+
+## 监控
+
+- 数据库
+
+http://localhost:8080/druid  
+账号：root/root
+
+- 缓存
+
+http://localhost:8080/cache/statistics
+
+- 线程池
+
+http://localhost:8080/thread/threadStatus
+
+- jvm
+
+http://localhost:8080/jvm/osInfo
+
+http://localhost:8080/jvm/memoryInfo
+
+http://localhost:8080/jvm/threadInfo
 
 
 

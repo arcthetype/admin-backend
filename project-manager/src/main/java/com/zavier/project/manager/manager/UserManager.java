@@ -15,7 +15,7 @@ public class UserManager {
         this.userMapper = userMapper;
     }
 
-    @Cacheable(value = "user")
+    @Cacheable(value = "user", key = "#root.methodName")
     public List<UserDO> listAllUser() {
         List<UserDO> users = userMapper.selectList(null);
         return users;
