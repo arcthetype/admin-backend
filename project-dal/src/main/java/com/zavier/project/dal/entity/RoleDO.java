@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户表
+ * 角色表
  * </p>
  *
  * @author zhengwei
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_user")
-public class User implements Serializable {
+@TableName("t_role")
+public class RoleDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -59,9 +59,9 @@ public class User implements Serializable {
     private Integer modifier;
 
     /**
-     * 姓名
+     * 角色名称
      */
-    private String userName;
+    private String roleName;
 
 
 }

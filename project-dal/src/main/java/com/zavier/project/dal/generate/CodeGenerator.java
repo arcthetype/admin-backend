@@ -50,6 +50,7 @@ public class CodeGenerator {
         mpg.setGlobalConfig(gc);
         gc.setServiceName("%sDao");
         gc.setServiceImplName("%sDaoImpl");
+        gc.setEntityName("%sDO");
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();

@@ -1,6 +1,6 @@
 package com.zavier.project.dal.dao.impl;
 
-import com.zavier.project.dal.entity.User;
+import com.zavier.project.dal.entity.UserDO;
 import com.zavier.project.dal.mapper.UserMapper;
 import com.zavier.project.dal.dao.UserDao;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2019-11-19
  */
 @Service
-public class UserDaoImpl extends ServiceImpl<UserMapper, User> implements UserDao {
+public class UserDaoImpl extends ServiceImpl<UserMapper, UserDO> implements UserDao {
 
 }

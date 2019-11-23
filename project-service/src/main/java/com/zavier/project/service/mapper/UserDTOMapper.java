@@ -1,6 +1,6 @@
 package com.zavier.project.service.mapper;
 
-import com.zavier.project.dal.entity.User;
+import com.zavier.project.dal.entity.UserDO;
 import com.zavier.project.service.dto.UserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserDTOMapper {
     UserDTOMapper INSTANCE = Mappers.getMapper(UserDTOMapper.class);
 
-    UserDTO areaToAreaDto(User user);
+    UserDTO userToUserDTO(UserDO user);
 
-    List<UserDTO> areaToAreaDtoList(List<User> users);
+    List<UserDTO> userToUserDTOList(List<UserDO> users);
 }

@@ -1,6 +1,6 @@
 package com.zavier.project.dal.mapper;
 
-import com.zavier.project.dal.entity.Role;
+import com.zavier.project.dal.entity.RoleDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @since 2019-11-19
  */
 @Repository
-public interface RoleMapper extends BaseMapper<Role> {
+public interface RoleMapper extends BaseMapper<RoleDO> {
 
 }

@@ -1,6 +1,6 @@
 package com.zavier.project.dal.mapper;
 
-import com.zavier.project.dal.entity.RoleMenu;
+import com.zavier.project.dal.entity.RoleMenuDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @since 2019-11-19
  */
 @Repository
-public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
+public interface RoleMenuMapper extends BaseMapper<RoleMenuDO> {
 
 }

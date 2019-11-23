@@ -1,18 +1,19 @@
 package com.zavier.project.dal.entity;
 
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.util.Date;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * <p>
- * 角色表
+ * 用户表
  * </p>
  *
  * @author zhengwei
@@ -21,8 +22,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_role")
-public class Role implements Serializable {
+@TableName("t_user")
+public class UserDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -59,9 +60,9 @@ public class Role implements Serializable {
     private Integer modifier;
 
     /**
-     * 角色名称
+     * 姓名
      */
-    private String roleName;
+    private String userName;
 
 
 }

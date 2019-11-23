@@ -22,7 +22,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("t_user_role")
-public class UserRole implements Serializable {
+public class UserRoleDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

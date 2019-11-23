@@ -1,6 +1,6 @@
 package com.zavier.project.dal.mapper;
 
-import com.zavier.project.dal.entity.Menu;
+import com.zavier.project.dal.entity.MenuDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @since 2019-11-19
  */
 @Repository
-public interface MenuMapper extends BaseMapper<Menu> {
+public interface MenuMapper extends BaseMapper<MenuDO> {
 
 }

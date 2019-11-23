@@ -1,6 +1,6 @@
 package com.zavier.project.dal.dao;
 
-import com.zavier.project.dal.entity.User;
+import com.zavier.project.dal.entity.UserDO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author zhengwei
  * @since 2019-11-19
  */
-public interface UserDao extends IService<User> {
+public interface UserDao extends IService<UserDO> {
 
 }

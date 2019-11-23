@@ -1,7 +1,8 @@
-package com.zavier.project.manager.local;
+package com.zavier.project.manager.manager;
 
-import com.zavier.project.dal.entity.User;
+import com.zavier.project.dal.entity.UserDO;
 import com.zavier.project.dal.mapper.UserMapper;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,8 +15,9 @@ public class UserManager {
         this.userMapper = userMapper;
     }
 
-    public List<User> listAllUser() {
-        List<User> users = userMapper.selectList(null);
+    @Cacheable(value = "user")
+    public List<UserDO> listAllUser() {
+        List<UserDO> users = userMapper.selectList(null);
         return users;
     }
 }
