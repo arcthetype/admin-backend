@@ -1,6 +1,6 @@
-package com.zavier.project.service;
+package com.zavier.project.service.user;
 
-import com.zavier.project.dal.entity.UserDO;
+import com.zavier.project.manager.bo.UserBO;
 import com.zavier.project.manager.manager.UserManager;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +15,8 @@ public class SearchUserService {
         this.userManager = userManager;
     }
 
-    public List<UserDO> listAll() {
-        List<UserDO> users = userManager.listAllUser();
+    public List<UserBO> listAll() {
+        List<UserBO> users = userManager.listAllUser();
         return users;
     }
 }

@@ -11,4 +11,8 @@ public class StringUtil {
     public static boolean isNotBlank(String str) {
         return StringUtils.isNotBlank(str);
     }
+
+    public static String revertString(String str) {
+        return StringUtils.reverse(str);
+    }
 }

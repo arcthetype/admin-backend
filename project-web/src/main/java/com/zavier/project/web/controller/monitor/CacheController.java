@@ -29,7 +29,7 @@ public class CacheController {
     public Result<List<CacheStatusInfo>> statistics() {
         Collection<String> cacheNames = cacheManager.getCacheNames();
         List<CacheStatusInfo> cacheStats = new ArrayList<>();
-        cacheNames.stream().forEach(cacheName -> {
+        cacheNames.forEach(cacheName -> {
             Cache cache = cacheManager.getCache(cacheName);
             Object nativeCache = cache.getNativeCache();
             if (nativeCache instanceof com.github.benmanes.caffeine.cache.Cache) {
