@@ -15,4 +15,11 @@ public class Result<T> {
         result.setData(data);
         return result;
     }
+
+    public static <T> Result<T> wrapErrorResult(String msg) {
+        final Result<T> result = new Result<>();
+        result.setSuccess(false);
+        result.setMsg(msg);
+        return result;
+    }
 }
