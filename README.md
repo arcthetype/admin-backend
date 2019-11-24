@@ -12,30 +12,30 @@
 
 ## API - swagger
 
-http://localhost:8080/swagger-ui.html
+http://localhost:9999/swagger-ui.html
 
 ## 监控
 
 - 数据库
 
-http://localhost:8080/druid  
+http://localhost:9999/druid  
 账号：root/root
 
 - 缓存
 
-http://localhost:8080/monitor/cache/statistics
+http://localhost:9999/monitor/cache/statistics
 
 - 线程池
 
-http://localhost:8080/monitor/thread/threadStatus
+http://localhost:9999/monitor/thread/threadStatus
 
 - jvm
 
-http://localhost:8080/monitor/jvm/osInfo
+http://localhost:9999/monitor/jvm/osInfo
 
-http://localhost:8080/monitor/jvm/memoryInfo
+http://localhost:9999/monitor/jvm/memoryInfo
 
-http://localhost:8080/monitor/jvm/threadInfo
+http://localhost:9999/monitor/jvm/threadInfo
 
 
 

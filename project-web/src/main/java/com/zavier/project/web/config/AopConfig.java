@@ -13,7 +13,11 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Aspect
@@ -38,10 +42,13 @@ public class AopConfig {
             }
         } catch (Throwable e) {
             // 非自定义异常统一记录异常日志
+            // ** json处理httpServletRequest时会报错 **
+            List<Object> argList = Arrays.stream(p.getArgs()).filter(arg -> !(arg instanceof HttpServletRequest))
+                    .collect(Collectors.toList());
             log.error("class:{}, method:{}, param:{} error",
                     p.getSignature().getDeclaringTypeName(),
                     p.getSignature().getName(),
-                    JSON.toJSONString(p.getArgs()), e);
+                    JSON.toJSONString(argList), e);
             Signature signature =  p.getSignature();
             Class returnType = ((MethodSignature)signature).getReturnType();
             if (returnType == Result.class) {

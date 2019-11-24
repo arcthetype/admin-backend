@@ -1,18 +1,22 @@
 package com.zavier.project.manager.security;
 
+import com.zavier.project.common.util.StringUtil;
 import com.zavier.project.manager.bo.UserBO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+@Slf4j
 @Component
 public class JwtTokenUtil implements Serializable {
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
@@ -37,7 +41,7 @@ public class JwtTokenUtil implements Serializable {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
-    private Boolean isTokenExpired(String token) {
+    public Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
     }
@@ -71,5 +75,17 @@ public class JwtTokenUtil implements Serializable {
     public Boolean validateToken(String token, UserBO UserBO) {
         final String username = getUsernameFromToken(token);
         return (username.equals(UserBO.getUserName()) && !isTokenExpired(token));
+    }
+
+    public String getJwtTokenFromRequest(HttpServletRequest request) {
+        String authorization = request.getHeader("Authorization");
+        if (StringUtil.isBlank(authorization)) {
+            return null;
+        }
+        if (authorization.startsWith("Bearer")) {
+            return authorization.substring(7);
+        }
+        log.warn("jwt token does not have bearer");
+        return authorization;
     }
 }

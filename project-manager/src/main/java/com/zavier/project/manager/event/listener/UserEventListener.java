@@ -7,7 +7,6 @@ import com.zavier.project.manager.bo.UserBO;
 import com.zavier.project.manager.event.LogInEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -22,7 +21,6 @@ public class UserEventListener {
         this.logInLogMapper = logInLogMapper;
     }
 
-    @Async
     @EventListener
     public void onLogInEvent(LogInEvent logInEvent) {
         UserBO loginUser = logInEvent.getUserBO();
