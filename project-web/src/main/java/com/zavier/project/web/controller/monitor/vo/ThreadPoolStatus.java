@@ -6,6 +6,12 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class ThreadPoolStatus {
+
+    /**
+     * 线程池名称
+     */
+    private String threadPoolName;
+
     /**
      * 设置的核心线程数
      */

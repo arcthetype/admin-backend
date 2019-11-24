@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.zavier.project.common.exp.CommonException;
 import com.zavier.project.web.res.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.CloseableThreadContext;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -11,6 +12,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.UUID;
 
 @Slf4j
 @Aspect
@@ -23,7 +26,8 @@ public class AopConfig {
     @Around("exceptionWrapper()")
     public Object around(ProceedingJoinPoint p) {
         Object o = null;
-        try {
+        String traceId = UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
+        try (final CloseableThreadContext.Instance ctc = CloseableThreadContext.put("traceId", traceId)) {
             o = p.proceed();
         } catch (CommonException e) {
             // 自定义异常自己处理日志问题

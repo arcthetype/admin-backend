@@ -40,4 +40,9 @@ public class UserBO {
      * 密码
      */
     private String password;
+
+    /**
+     * 用户登录IP
+     */
+    private String ip;
 }

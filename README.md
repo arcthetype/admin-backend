@@ -23,19 +23,19 @@ http://localhost:8080/druid
 
 - 缓存
 
-http://localhost:8080/cache/statistics
+http://localhost:8080/monitor/cache/statistics
 
 - 线程池
 
-http://localhost:8080/thread/threadStatus
+http://localhost:8080/monitor/thread/threadStatus
 
 - jvm
 
-http://localhost:8080/jvm/osInfo
+http://localhost:8080/monitor/jvm/osInfo
 
-http://localhost:8080/jvm/memoryInfo
+http://localhost:8080/monitor/jvm/memoryInfo
 
-http://localhost:8080/jvm/threadInfo
+http://localhost:8080/monitor/jvm/threadInfo
 
 
 

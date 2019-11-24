@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("cache")
+@RequestMapping("monitor/cache")
 public class CacheController {
 
     private final CacheManager cacheManager;

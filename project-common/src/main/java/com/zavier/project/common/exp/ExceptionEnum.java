@@ -16,6 +16,8 @@ public enum ExceptionEnum {
 
     LOGIN_ERROR("104", "登录失败"),
 
+    UNAUTHORIZED("105", "未认证"),
+
     ;
 
     @Getter

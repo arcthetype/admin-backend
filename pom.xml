@@ -35,7 +35,7 @@
 		<guava.version>28.1-jre</guava.version>
 		<common.collections.version>4.4</common.collections.version>
 		<caffeine.version>2.8.0</caffeine.version>
-		<shiro.core.version>1.4.2</shiro.core.version>
+		<shiro.springboot.version>1.4.2</shiro.springboot.version>
 	</properties>
 
 	<dependencyManagement>
@@ -54,11 +54,6 @@
 				<groupId>com.github.ben-manes.caffeine</groupId>
 				<artifactId>caffeine</artifactId>
 				<version>${caffeine.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.shiro</groupId>
-				<artifactId>shiro-core</artifactId>
-				<version>${shiro.core.version}</version>
 			</dependency>
 
 			<dependency>
@@ -105,6 +100,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
@@ -125,7 +126,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-core</artifactId>
+			<artifactId>shiro-spring-boot-web-starter</artifactId>
+			<version>${shiro.springboot.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>

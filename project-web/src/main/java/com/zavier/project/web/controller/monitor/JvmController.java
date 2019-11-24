@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("jvm")
+@RequestMapping("monitor/jvm")
 public class JvmController {
 
     /**
