@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 登录
  */
@@ -29,14 +32,27 @@ public class SignInService {
     }
 
     public String signIn(UserBO userBO) {
+        // 校验密码
         boolean userPassword = userService.checkUserPassword(userBO);
         if (!userPassword) {
             log.info("password error");
             throw new CommonException(ExceptionEnum.USER_NAME_PASSWORD_ERROR);
         }
-        String token = jwtTokenUtil.generateToken(userBO);
+
+        // 生成token
+        UserBO userAndRoles = userService.listUserAndRoles(userBO.getUserName());
+        String token = generateUserToken(userAndRoles);
+
+        // 发送登录事件
         LogInEvent logInEvent = new LogInEvent(this, userBO);
         applicationEventPublisher.publishEvent(logInEvent);
         return token;
+    }
+
+    private String generateUserToken(UserBO userBO) {
+        String roles = userBO.getRoles();
+        Map<String, Object> map = new HashMap<>();
+        map.put("roles", roles);
+        return jwtTokenUtil.generateToken(userBO, map);
     }
 }

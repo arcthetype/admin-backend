@@ -1,5 +1,7 @@
 package com.zavier.project.dal.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.zavier.project.dal.entity.RoleMenuDO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
@@ -15,4 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RoleMenuMapper extends BaseMapper<RoleMenuDO> {
 
+    default Wrapper<RoleMenuDO> findByRoleId(Integer roleId) {
+        return Wrappers.<RoleMenuDO>lambdaQuery().eq(RoleMenuDO::getRoleId, roleId);
+    }
 }

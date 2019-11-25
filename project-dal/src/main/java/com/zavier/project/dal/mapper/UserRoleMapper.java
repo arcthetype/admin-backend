@@ -1,7 +1,9 @@
 package com.zavier.project.dal.mapper;
 
-import com.zavier.project.dal.entity.UserRoleDO;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.zavier.project.dal.entity.UserRoleDO;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,4 +17,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRoleMapper extends BaseMapper<UserRoleDO> {
 
+    default Wrapper<UserRoleDO> findByUserId(Integer userId) {
+        return Wrappers.<UserRoleDO>lambdaQuery().eq(UserRoleDO::getUserId, userId);
+    }
 }

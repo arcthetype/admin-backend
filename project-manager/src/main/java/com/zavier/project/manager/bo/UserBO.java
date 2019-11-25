@@ -1,8 +1,11 @@
 package com.zavier.project.manager.bo;
 
+import com.zavier.project.common.util.CollectionUtil;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class UserBO {
@@ -45,4 +48,22 @@ public class UserBO {
      * 用户登录IP
      */
     private String ip;
+
+    /**
+     * 角色列表
+     */
+    private List<RoleBO> roleBOList;
+
+    /**
+     * 菜单列表
+     */
+    private List<MenuBO> menuBOList;
+
+
+    public String getRoles() {
+        if (CollectionUtil.isEmpty(roleBOList)) {
+            return "";
+        }
+        return roleBOList.stream().map(RoleBO::getRoleName).collect(Collectors.joining(","));
+    }
 }

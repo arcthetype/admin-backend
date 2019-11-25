@@ -18,6 +18,12 @@ public enum ExceptionEnum {
 
     UNAUTHORIZED("105", "未认证"),
 
+    TOKEN_NOT_EXIST("106", "token不存在"),
+
+    TOKEN_INVALID("107", "token无效"),
+
+    TOKEN_EXPIRED("108", "token已过期"),
+
     ;
 
     @Getter
