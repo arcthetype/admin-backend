@@ -123,16 +123,16 @@ public class JwtTokenUtil implements Serializable {
      */
     public String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
+                .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret)
-                .setClaims(claims)
                 .compact();
     }
 
     /**
-     * 校验token有效性
+     * 校验token有效性(需要与doGenerateToken匹配)
      *
      * @param token the token
      * @return boolean
@@ -147,8 +147,14 @@ public class JwtTokenUtil implements Serializable {
             Object s = claims.get(k);
             map.put(k, s);
         });
-        String subject = claims.getSubject();
-        String newToken = doGenerateToken(map, subject);
+        String newToken = Jwts.builder()
+                .setClaims(claims)
+                .setSubject(claims.getSubject())
+                .setIssuedAt(claims.getIssuedAt())
+                .setExpiration(claims.getExpiration())
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
+        log.info("newToken:{}", newToken);
         return newToken.equals(token);
     }
 
